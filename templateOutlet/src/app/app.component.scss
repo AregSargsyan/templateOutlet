@@ -1,0 +1,21 @@
+td {
+  width: 100px;
+}
+thead {
+  td {
+    border: 2px solid red;
+  }
+}
+tbody {
+  td {
+    border: 2px solid blue;
+  }
+}
+input{
+  width: 100px;
+  border: 2px solid blue;
+}
+.ok, .cancel{
+  width: 98px;
+  border: 2px solid blue;
+}

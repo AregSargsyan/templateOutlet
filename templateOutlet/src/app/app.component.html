@@ -1,0 +1,38 @@
+
+<table>
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Age</td>
+      <td>Name</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <ng-template [ngTemplateOutlet]=loadTemplate(user) [ngTemplateOutletContext]="{ $implicit: user}"></ng-template>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #redOnlyTemplate let-user>
+  <td>{{user.id}}</td>
+  <td>{{user.age}}</td>
+  <td>{{user.name}}</td>
+  <td><button (click)="editUser(user)">Edit</button></td>
+  <td><button (click)="deleteUser(user)">Delete</button></td>
+</ng-template>
+
+<ng-template #editTemplate>
+  <td colspan="5">
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
+     <input formControlName="id"  />
+     <input formControlName="age" />
+     <input formControlName="name" />
+     <button class="ok" (click)="submit()">OK</button>
+    <button class="cancel" (click)="cancel()">Cancel</button>
+
+    </form>
+  </td>
+</ng-template>
